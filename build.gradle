@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'cmu.refactoring'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    getMainClass().set('cmu.detector.RefactoringEngine')
+    applicationDefaultJvmArgs = ['-Xms40m','-Xmx4096m']
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java/']
+        }
+    }
+
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+
+    implementation group: 'org.eclipse.jdt', name: 'org.eclipse.jdt.core', version: '3.38.0'
+    implementation group: 'commons-cli', name: 'commons-cli', version: '1.7.0'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.16.1'
+    implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
+}
+
+test {
+    useJUnitPlatform()
+}

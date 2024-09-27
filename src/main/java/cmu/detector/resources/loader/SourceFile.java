@@ -32,9 +32,11 @@ public class SourceFile {
 
     private void searchForTypes() {
         this.types = new ArrayList<>();
+
         TypeDeclarationCollector visitor = new TypeDeclarationCollector();
         this.compilationUnit.accept(visitor);
         List<TypeDeclaration> typeDeclarations = visitor.getNodesCollected();
+
         for (TypeDeclaration typeDeclaration : typeDeclarations) {
             Type type = new Type(this, typeDeclaration);
             this.types.add(type);

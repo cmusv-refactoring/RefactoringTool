@@ -50,6 +50,8 @@ public class RefactoringEngine {
         List<String> sourcePaths = List.of(parameters.getValue(ToolParameters.SOURCE_FOLDER));
         List<Type> allTypes = this.loadAllTypes(sourcePaths);
 
+        collectTypeMetrics(allTypes);
+
         saveInfoFile(allTypes);
 
         System.out.println(new Date());
@@ -59,8 +61,13 @@ public class RefactoringEngine {
     private List<Type> loadAllTypes(List<String> sourcePaths) throws IOException {
         List<Type> allTypes = new ArrayList<>();
 
-        //TODO: complete the parsing in class
+        JavaFilesFinder javaFilesFinder = new JavaFilesFinder(sourcePaths);
+        SourceFilesLoader sourceFilesLoader = new SourceFilesLoader(javaFilesFinder);
+        List<SourceFile> sourceFiles = sourceFilesLoader.getLoadedSourceFiles();
 
+        for (SourceFile sourceFile : sourceFiles) {
+            allTypes.addAll(sourceFile.getTypes());
+        }
 
         return allTypes;
     }

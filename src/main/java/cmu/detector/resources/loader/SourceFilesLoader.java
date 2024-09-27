@@ -19,6 +19,7 @@ public class SourceFilesLoader {
 	public SourceFilesLoader(JavaFilesFinder loader) throws IOException {
 		this.loader = loader;
 		this.sourceFiles = new ArrayList<>();
+
 		this.load(loader.findAll());
 	}
 	

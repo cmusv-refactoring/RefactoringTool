@@ -31,7 +31,6 @@ public class TightClassCohesionTest {
             "SimpleClass, 0.4",
     })
     public void checkTCC(String input, double expected) {
-
         Assertions.fail();
     }
 

@@ -34,13 +34,13 @@ package cmu.detector.dummy.metrics.cohesion;
  * Where {@code N} is the number of methods in the class.
  * </p>
  * <pre>
- * {@code NP = 4 * (4 - 1) / 2 = 6}
+ * {@code NP = 3 * (3 - 1) / 2 = 3}
  * </pre>
  * <p>
  * TCC is given by:
  * </p>
  * <pre>
- * {@code TCC = NDC / NP = 0 / 6 = 0}
+ * {@code TCC = NDC / NP = 0 / 3 = 0}
  * </pre>
  * <p>
  * <p>

@@ -1,30 +1,48 @@
 package cmu.detector.dummy.metrics.cohesion;
 
 /**
- * METRICS
+ * This class demonstrates the calculation of Tight Class Cohesion (TCC).
  * <p>
- * TCC: 0
+ * TCC measures the cohesion of a class by evaluating the ratio of the number of actual direct connections
+ * between methods to the maximum number of possible connections.
+ * </p>
+ * <p>
+ * For the {@code MediumCohesion}, we have the following analysis:
  * </p>
  * <ul>
- *     <li>NDC = 0</li>
- *     <li>NP = 2</li>
+ *   <li>Instance Variable (we exclude static attributes):
+ *      <ul>
+ *          <li>{@code null}</li>
+ *      </ul>
+ *   <li>Instance Methods (we exclude static and private methods):
+ *     <ul>
+ *       <li>{@code public void m1()}</li>
+ *       <li>{@code public void m2()}</li>
+ *     </ul>
+ *   </li>
  * </ul>
  * <p>
- * Direct connections are established through shared instance variables. Since <code>a</code> is a static variable, it is not considered
- * an instance variable for the purposes of TCC, which focuses on instance variables shared between non-static methods.
- * </p>
+ * Direct connections are established through shared instance variables. This class has zero instances variables.
+ * Therefore, this class has NDC {@code 0}.
  * <p>
- * In this class, all accesses are to the static variable <code>a</code>. Therefore, we need to check connections between non-static
- * methods (<code>m1</code>, <code>m2</code>, and <code>m4</code>) through this static variable. However, since <code>a</code> is static, it does not contribute to
- * instance-based direct connections. Thus, there are no direct connections between instance methods based on shared
- * instance variables.
+ * The maximum number of possible connections (NP) between the methods is calculated as follows (where N is the number of methods in the class excluding static methods):
  * </p>
- * <ul>
- *     <li><code>m1</code>: Does not connect to <code>a</code> in the context of instance variables.</li>
- *     <li><code>m2</code>: Connects to <code>a</code>, but <code>a</code> is static.</li>
- *     <li><code>m3</code>: Static method, does not contribute to instance-based connections.</li>
- *     <li><code>m4</code>: Connects to <code>a</code>, but <code>a</code> is static.</li>
- * </ul>
+ * <pre>
+ * {@code NP = N * (N - 1) / 2}
+ * </pre>
+ * <p>
+ * Where {@code N} is the number of methods in the class.
+ * </p>
+ * <pre>
+ * {@code NP = 4 * (4 - 1) / 2 = 6}
+ * </pre>
+ * <p>
+ * TCC is given by:
+ * </p>
+ * <pre>
+ * {@code TCC = NDC / NP = 0 / 6 = 0}
+ * </pre>
+ * <p>
  * <p>
  * Another metric used for cohesion is the Lack of Cohesion:
  * <table>

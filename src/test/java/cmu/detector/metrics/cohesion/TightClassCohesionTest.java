@@ -24,10 +24,10 @@ public class TightClassCohesionTest {
             "ConnectedClass, 0.4",
             "DisconnectedClass, 0.2",
             "HighCohesion, 1.0",
-            "MediumCohesion, 1.0",
+            "MediumCohesion, 0.33333333",
             "NoCohesion, 0",
             "Simple1, 0.1",
-            "Simple1Inner, 0.3",
+            "Simple1Inner, 0.1",
             "SimpleClass, 0.4",
     })
     public void checkTCC(String input, double expected) {

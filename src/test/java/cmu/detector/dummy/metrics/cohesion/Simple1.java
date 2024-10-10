@@ -7,78 +7,56 @@ package cmu.detector.dummy.metrics.cohesion;
  * between methods to the maximum number of possible connections.
  * </p>
  * <p>
- * For the class {@code Simple1}, we have the following analysis:
+ * For the {@code Simple1}, we have the following analysis:
  * </p>
  * <ul>
- *   <li>Instance Variables:
+ *   <li>Instance Variable (we exclude static attributes):
+ *      <ul>
+ *          <li>{@code private int a}</li>
+ *          <li>{@code private int b}</li>
+ *      </ul>
+ *   <li>Instance Methods (we exclude static and private methods):
  *     <ul>
- *       <li>{@code private int a}</li>
- *       <li>{@code private int b}</li>
- *     </ul>
- *   </li>
- *   <li>Public Methods:
- *     <ul>
- *       <li>{@code public void m1()}</li>
- *       <li>{@code public void m2()}</li>
- *       <li>{@code public void m3()}</li>
+ *       <li>{@code public void m1() -> a}</li>
+ *       <li>{@code public void m2() -> a}</li>
+ *       <li>{@code public void m3() -> b}</li>
  *       <li>{@code public void m4()}</li>
- *       <li>{@code public void m5(int b)}</li>
- *       <li>{@code public void n1()} (in {@code Complex2})</li>
+ *       <li>{@code public void m5()}</li>
  *     </ul>
  *   </li>
  * </ul>
  * <p>
- * Direct connections are established through shared instance variables. In this class, the instance variables {@code a} and {@code b}
- * are accessed by the following methods:
+ * Notice that the inner class methods were ignored.
+ * </p>
+ * <p>
+ * Direct connections are established through shared instance variables, or the call trees starting at A and B access
+ * the same class-level variable. From these connections, we can derive the following pairs of methods that interact through the instance variable {@code a}:
  * </p>
  * <ul>
- *   <li>{@code m1}: Accesses instance variable {@code a}.</li>
- *   <li>{@code m2}: Accesses instance variable {@code a}.</li>
- *   <li>{@code m3}: Accesses instance variable {@code b}.</li>
- *   <li>{@code m4}: Does not access any instance variables directly.</li>
- *   <li>{@code m5}: Does not access any instance variables directly.</li>
+ *   <li>{@code (m1, m2) -> a} (shared variable)) </li>
  * </ul>
  * <p>
- * Notice that the inner class methods were not considered  because they don't access any outer class variable.
- * From these connections, we can derive the following pairs of methods that interact through the instance variables:
- * </p>
- * <ul>
- *   <li>({@code m1}, {@code m2}) through {@code a}</li>
- * </ul>
- * <p>
- * Therefore, the number of direct connections (NDC) is 1.
+ * Therefore, the number of direct connections (NDC) is {@code 1}.
  * </p>
  * <p>
- * The maximum number of possible connections (NP) between the methods is calculated as follows:
+ * The maximum number of possible connections (NP) between the methods is calculated as follows (where N is the number of methods in the class excluding static methods):
  * </p>
  * <pre>
- * NP = N * (N - 1) / 2
- * </pre>
- * <p>
- * Where {@code N} is the number of public methods in the class. Here, {@code N = 5} (m1, m2, m3, m4, m5).
- * </p>
- * <pre>
- * NP = 5 * (5 - 1) / 2 = 10
+ * {@code NP = N * (N - 1) / 2 = 5 * (5 - 1) / 2 = 10}
  * </pre>
  * <p>
  * TCC is given by:
  * </p>
  * <pre>
- * TCC = NDC / NP = 1 / 10 = 0.1
+ * {@code TCC = NDC / NP = 1 / 10 = 0.1}
  * </pre>
  * <p>
- * This indicates that the class has a TCC value of 0.1, meaning it has low cohesion, as there are very few direct
- * connections between the methods based on shared instance variables.
- * </p>
  * <p>
- *     The inner class Complex2 has its own methods and instance variable n. However, for the TCC calculation of the
- *     outer class Simple1, we do not consider the inner class methods and fields unless they interact with the outer
- *     class's instance variables. In this case, they do not.
+ *     The inner class {@code Complex2} has its own methods and instance variable n. However, for the TCC and LOC calculation of the
+ *     outer class, we do not consider the inner class methods.
  * <p/>
  * <p>
- *  Another metric used for cohesion is the Lack of Cohesion. The inner class Complex2 has its own methods and instance
- *  variable n. However, for the LCOM calculation of the outer class Simple1, we do not consider the inner class methods
- *  and fields.
+ *  Another metric used for cohesion is the Lack of Cohesion.
  * <table>
  *   <tr>
  *     <th>LCOM Metric</th>

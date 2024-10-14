@@ -7,7 +7,7 @@ package cmu.detector.dummy.metrics.cohesion;
  * between methods to the maximum number of possible connections.
  * </p>
  * <p>
- * For the {@code MediumCohesion}, we have the following analysis:
+ * For the {@code NoCohesion}, we have the following analysis:
  * </p>
  * <ul>
  *   <li>Instance Variable (we exclude static attributes):

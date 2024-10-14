@@ -31,7 +31,7 @@ package cmu.detector.dummy.metrics.cohesion;
  * </p>
  * <ul>
  *   <li>{@code (A, B) -> x} (call tree)</li>
- *   <li>{@code (A, C) -> x} (shared variable)</li>
+ *   <li>{@code (A, C) -> x} (shared variable and call tree)</li>
  *   <li>{@code (B, C) -> x} (shared variable)</li>
  *   <li>{@code (C, D) -> y} (shared variable)</li>
  * </ul>

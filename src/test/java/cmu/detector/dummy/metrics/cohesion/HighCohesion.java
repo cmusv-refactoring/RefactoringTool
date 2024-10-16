@@ -49,22 +49,27 @@ package cmu.detector.dummy.metrics.cohesion;
  *   <tr>
  *     <th>LCOM Metric</th>
  *     <th>Value</th>
+ *     <th>Note</th>
  *   </tr>
  *   <tr>
  *     <td>LCOM1</td>
  *     <td>0</td>
+ *     <td>Since P (0) < Q (1), LCOM1 = 0 (we don't count <code>m2</code> because it's static).</td>
  *   </tr>
  *   <tr>
  *     <td>LCOM2</td>
  *     <td>0</td>
+ *     <td>We don't count <code>m2</code> because it's static</td>
  *   </tr>
  *   <tr>
  *     <td>LCOM3</td>
  *     <td>0</td>
+ *     <td>We don't count <code>m2</code> because it's static</td>
  *   </tr>
  *   <tr>
  *     <td>LCOM4</td>
- *     <td>1</td>
+ *     <td>2</td>
+ *     <td>We consider <code>m2</code> despite being static</td>
  *   </tr>
  * </table>
  * <p>

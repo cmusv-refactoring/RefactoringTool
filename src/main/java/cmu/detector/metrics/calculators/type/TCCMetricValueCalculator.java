@@ -2,10 +2,12 @@ package cmu.detector.metrics.calculators.type;
 
 /**
  * This class computes the Tight Class Cohesion (TCC) for a given class.
- * The Tight Class Cohesion (TCC) measures the ratio between the actual number of visible directly connected methods (public)
- * in a class, NDC(C), divided by the number of maximal possible connections between the visible methods of
+ * The Tight Class Cohesion (TCC) measures the ratio between the actual number of visible directly connected methods (we exclude private and static methods)
+ * in a class, NDC(C), divided by the number of maximal possible connections between the methods of
  * a class, NP(C).
- * Two visible methods are directly connected if they are accessing the same instance variables of the class.
+ * <p>
+ * Two visible methods are directly connected if they are accessing the same instance variables of the class or the call trees starting at A and B access the same variable.
+ * </p.
  * <p>
  * TCC is defined as:
  * </p>

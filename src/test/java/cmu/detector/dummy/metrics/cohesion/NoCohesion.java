@@ -7,7 +7,7 @@ package cmu.detector.dummy.metrics.cohesion;
  * between methods to the maximum number of possible connections.
  * </p>
  * <p>
- * For the {@code NoCohesion}, we have the following analysis:
+ * For the {@code MediumCohesion}, we have the following analysis:
  * </p>
  * <ul>
  *   <li>Instance Variable (we exclude static attributes):
@@ -49,22 +49,27 @@ package cmu.detector.dummy.metrics.cohesion;
  *   <tr>
  *     <th>LCOM Metric</th>
  *     <th>Value</th>
+ *     <th>Note</th>
  *   </tr>
  *   <tr>
  *     <td>LCOM1</td>
- *     <td>0</td>
+ *     <td>3</td>
+ *     <td>Since P (3) > Q (0). Then LCOM1 = P - Q = 3 (We don't consider <code>a</code>and <code>m3</code> because they are static).</td>
  *   </tr>
  *   <tr>
  *     <td>LCOM2</td>
- *     <td>0.25</td>
+ *     <td>0</td>
+ *     <td>Impossible to calculate LCOM2. (We don't consider <code>a</code> and <code>m3</code> because they are static)</td>
  *   </tr>
  *   <tr>
  *     <td>LCOM3</td>
- *     <td>0.33333333</td>
+ *     <td>0</td>
+ *     <td>Impossible to calculate LCOM3. (We don't consider <code>a</code> and <code>m3</code> because they are static)</td>
  *   </tr>
  *   <tr>
  *     <td>LCOM4</td>
  *     <td>2</td>
+ *     <td>We consider <code>a</code> and <code>m3</code> despite being static</td>
  *   </tr>
  * </table>
  * <p>

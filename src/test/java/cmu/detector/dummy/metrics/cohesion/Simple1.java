@@ -114,7 +114,7 @@ class Simple1 {
 	}
 
 	/**
-	 * Inner class, it has no access to outer class attributes
+	 * We ignore inner class (this class has no access to outer class attributes)
 	 */
 	class Complex2 {
 		String n = "";

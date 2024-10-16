@@ -10,7 +10,7 @@ package cmu.detector.dummy.metrics.cohesion;
  * For the {@code DisconnectedClass}, we have the following analysis:
  * </p>
  * <ul>
- *    <li>Instance Variable (we exclude static attributes):
+ *    <li>Instance Variables (we exclude static attributes):
  *      <ul>
  *          <li>{@code private int x}</li>
  *          <li>{@code private int y}</li>

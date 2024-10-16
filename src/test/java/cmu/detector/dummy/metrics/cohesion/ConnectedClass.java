@@ -10,7 +10,7 @@ package cmu.detector.dummy.metrics.cohesion;
  * For the class {@code ConnectedClass}, we have the following analysis:
  * </p>
  * <ul>
- *   <li>Instance Variable (we exclude static attributes):
+ *   <li>Instance Variables (we exclude static attributes):
  *      <ul>
  *          <li>{@code private int x}</li>
  *          <li>{@code private int y}</li>
@@ -31,7 +31,7 @@ package cmu.detector.dummy.metrics.cohesion;
  * </p>
  * <ul>
  *   <li>{@code (A, B) -> x} (call tree)</li>
- *   <li>{@code (A, C) -> x} (shared variable and call tree)</li>
+ *   <li>{@code (A, C) -> x} (shared variable)</li>
  *   <li>{@code (B, C) -> x} (shared variable)</li>
  *   <li>{@code (C, D) -> y} (shared variable)</li>
  * </ul>

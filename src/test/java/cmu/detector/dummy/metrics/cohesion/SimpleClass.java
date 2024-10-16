@@ -32,8 +32,8 @@ package cmu.detector.dummy.metrics.cohesion;
  * <ul>
  *   <li>{@code (m1,  m2) -> a} (shared variable)) </li>
  *   <li>{@code (m1, m3) -> a} (shared variable) </li>
- *   <li>{@code (m1, m4) -> a} (shared variable) </li>
- *   <li>{@code (m3, m4) -> a} (shared variable) </li>
+ *   <li>{@code (m1, m4) -> a or b} (shared variable) </li>
+ *   <li>{@code (m3, m4) -> b} (shared variable) </li>
  * </ul>
  * <p>
  * Therefore, the number of direct connections (NDC) is {@code 4}.

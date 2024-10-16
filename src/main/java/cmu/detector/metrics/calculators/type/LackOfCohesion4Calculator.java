@@ -1,7 +1,7 @@
 package cmu.detector.metrics.calculators.type;
 
 /**
- * Class to calculate the LCOM3 (Lack of Cohesion of Methods 3) metric.
+ * Class to calculate the LCOM4 (Lack of Cohesion of Methods 4) metric.
  * <p>
  * LCOM4 is the lack of cohesion metric we adapted from <a href="https://www.aivosto.com/project/help/pm-oo-cohesion.html#LCOM4">Hitz & Montazeri</a>
  *

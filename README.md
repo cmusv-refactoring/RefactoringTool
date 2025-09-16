@@ -4,6 +4,8 @@ Starter code for the refactoring tool detector.
 
 OBS. IntelliJ Command to run: run --args="-out _path_in_your_machine_to_save_output_file/output.json -src _path_to_source_code_under_analysis/src"
 
+For example: run --args="-out output.json -src src" will run the tool in its own source code and output the file in the project root.
+
 
 See **RefactoringTool.pdf** for a simplified class diagram. The RefactoringTool Java project’s class diagram outlines the structure and relationships of various components. Here’s an explanation of the key elements and packages in the diagram:
 

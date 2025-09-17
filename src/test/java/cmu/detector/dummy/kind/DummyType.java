@@ -19,23 +19,33 @@ public class DummyType implements DummyInterface {
     /**
      * The "buffer.append(string.toString());" creates two method calls in a sequence
      */
-    private void twoCallChain() {
+    private void oneMoreCallChain() {
         String string = new String("1");
         StringBuffer buffer = new StringBuffer();
 
         buffer.append(string.toString());
     }
 
-    /**
-     * Concatenation breaks the chain.
-     * For example buffer.append(string.toString() + ""); breaks the chain,
-     * leading to 1 method call only
-     */
     public void anotherOneCallChain() {
         String string = new String("Concatenation breaks the call chain");
         StringBuffer buffer = new StringBuffer();
 
         buffer.append(string.toString() + "");
+    }
+
+    public void twoCallChain() {
+        String string = new String("");
+        StringBuffer buffer = new StringBuffer();
+
+
+        buffer.append(string.toString()).append(string.toString());
+    }
+
+    public void anotherTwoCallChain() {
+        String string = new String("");
+        StringBuffer buffer = new StringBuffer();
+
+        buffer.append(string.toString() + "").append(string.toString());
     }
 
     /**
@@ -47,30 +57,11 @@ public class DummyType implements DummyInterface {
         buffer.append("1").append("2").append("3");
     }
 
-    public void alsoThreeCallChain() {
+    public void fourCallChain() {
         String string = new String("");
         StringBuffer buffer = new StringBuffer();
 
-
-        buffer.append(string.toString()).append(string.toString());
-    }
-
-    /**
-     * Concatenation breaks the chain.
-     * For example buffer.append(string.toString() + "").append(); breaks the chain into two parts
-     */
-    public void anotherTwoCallChain() {
-        String string = new String("");
-        StringBuffer buffer = new StringBuffer();
-
-        buffer.append(string.toString() + "").append(string.toString());
-    }
-
-    public void forCallChain() {
-        String string = new String("");
-        StringBuffer buffer = new StringBuffer();
-
-        buffer.append(string.toString()).append(string.toString()).append("one more");
+        buffer.append(string.toString()).append("2").append("one more").append("4");
     }
 
     @Override

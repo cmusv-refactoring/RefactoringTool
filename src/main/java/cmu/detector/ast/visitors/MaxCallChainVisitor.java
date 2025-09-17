@@ -2,6 +2,7 @@ package cmu.detector.ast.visitors;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 
 /**
@@ -16,17 +17,15 @@ public class MaxCallChainVisitor extends ASTVisitor {
 
     @Override
     public boolean visit(MethodInvocation node) {
+        int chainSize = 1;
+        Expression expr = node.getExpression();
 
-        Integer chainSize = 1;
-
-        ASTNode parent = node.getParent();
-
-        while (parent != null && (parent instanceof MethodInvocation)) {
+        while (expr instanceof MethodInvocation) {
             chainSize++;
-            parent = parent.getParent();
+            expr = ((MethodInvocation) expr).getExpression();
         }
-        maxCallChain = Math.max(maxCallChain, chainSize);
 
+        maxCallChain = Math.max(maxCallChain, chainSize);
         return true;
     }
 
